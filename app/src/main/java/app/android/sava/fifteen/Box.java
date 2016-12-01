@@ -24,6 +24,8 @@ public class Box {
         }*/
     }
 
+    Box(int id) { this.setId(id); x = y = m_bg_color = 0;}
+
     void Draw(Canvas canvas, float x0, float y0, float step) {
         if (id == 0)
             return;

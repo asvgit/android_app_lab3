@@ -54,10 +54,22 @@ public class BoxSet {
             }
             for (int i = 0; i < n_in_line; ++i) {
                 for (int j = 0; j < n_in_line; ++j) {
-                    n_map.get(j).add(map.get(i).get(j));
+                    n_map.get(j).add( new Box(map.get(n_in_line - i - 1).get(j).getId()));
                 }
             }
-            map = n_map;
+            for (int i = 0; i < n_in_line; ++i) {
+                for (int j = 0; j < n_in_line; ++j) {
+                    map.get(i).get(j).setId(n_map.get(i).get(j).getId());
+                    if (map.get(i).get(j).getId() == 0) {
+                        bj = j;
+                        bi = i;
+                    }
+                }
+            }
+            if (bj != n_in_line -1) {
+                for (int i = 1; i < n_in_line; ++i)
+                    MoveBox(bi, i);
+            }
         }
     }
 
